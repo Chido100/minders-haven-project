@@ -9,10 +9,10 @@ services:
     volumes:
       - .:/app:z
       - ./staticfiles:/app/staticfiles
-    ports:
-      - "8000:8000"
-    #expose:
-    #  - "8000"
+    #ports:
+    #  - "8000:8000"
+    expose:
+      - "8000"
     env_file:
       - ./.envs/.env.local
     depends_on:
@@ -60,8 +60,10 @@ services:
       dockerfile: ./docker/local/Dockerfile
     container_name: minders_haven_client
     image: minders_haven_client
-    ports:
-      - "3000:3000"
+    #ports:
+    #  - "3000:3000"
+    expose:
+      - "3000"
     volumes:
       - ./client:/app
       - /app/node_modules
@@ -98,21 +100,21 @@ services:
 #    command: /start-flower
 
   
-#  nginx:
-#    build:
-#      context: ./docker/local/nginx
-#      dockerfile: Dockerfile
-#    restart: always
-#    container_name: minders_haven_nginx
-#    ports:
-#      - "8080:80"
-#    volumes:
-#      - ./staticfiles:/app/staticfiles
-#    depends_on:
-#      - logs_store:/var/log/nginx
-#      - api
-#    networks:
-#      - minders_haven_prod_nw
+  nginx:
+    build:
+      context: ./docker/local/nginx
+      dockerfile: Dockerfile
+    restart: always
+    container_name: minders_haven_nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - ./staticfiles:/app/staticfiles
+      - logs_store:/var/log/nginx
+    depends_on:
+      - api
+    networks:
+      - minders_haven_prod_nw
     
 
 networks:
@@ -122,6 +124,6 @@ networks:
 volumes:
   minders_haven_prod_postgres_data: {}
   minders_haven_prod_mailpit_data: {}
-#  logs_store: {}
+  logs_store: {}
 #  minders_haven_redis_prod_data: {}
 
