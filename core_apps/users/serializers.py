@@ -15,18 +15,20 @@ class CreateUserSerializer(UserCreateSerializer):
 
 
 class CustomUserSerializer(UserSerializer):
-    full_name = serializers.CharField(source="get_full_name")
-    gender = serializers.CharField(source="profile.gender")
-    slug = serializers.CharField(source="profile.slug")
-    occupation = serializers.CharField(source="profile.occupation")
+    full_name = serializers.ReadOnlyField(source="get_full_name")
+    gender = serializers.ReadOnlyField(source="profile.gender")
+    slug = serializers.ReadOnlyField(source="profile.slug")
+    occupation = serializers.ReadOnlyField(source="profile.occupation")
     phone_number = PhoneNumberField(source="profile.phone_number")
-    avatar = serializers.CharField(source="profile.avatar.url")
+    city = serializers.ReadOnlyField(source="profile.city")
+    avatar = serializers.ReadOnlyField(source="profile.avatar.url")
+    
 
     class Meta(UserSerializer.Meta):
         model = User
         fields = [
             "id", "email", "first_name", "last_name", "username", "slug", "full_name",
-            "gender", "occupation", "phone_number", "avatar", "date_joined",
+            "gender", "occupation", "phone_number", "city", "avatar", "date_joined",
         ]
         read_only_fields=["id", "email", "date_joined"]
 
