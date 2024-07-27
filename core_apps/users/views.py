@@ -46,7 +46,7 @@ class CustomTokenObtainPairView(TokenObtainPairView):
             if access_token and refresh_token:
                 set_auth_cookies(token_res, access_token=access_token, refresh_token=refresh_token)
 
-                token_res.data,pop("access", None)
+                token_res.data.pop("access", None)
                 token_res.data.pop("refresh", None)
 
                 token_res.data["message"] = "Login Successful."
