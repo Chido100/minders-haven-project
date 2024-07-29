@@ -5,6 +5,7 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _ 
 from django_countries.fields import CountryField
 from phonenumber_field.modelfields import PhoneNumberField
+from django.db.models import Avg
 
 from core_apps.common.models import TimeStampedModel
 
@@ -38,9 +39,13 @@ class Profile(TimeStampedModel):
     slug = AutoSlugField(populate_from=get_user_username, unique=True)
 
     
-    def save(self, *args, **kwargs):
-        super().save(*args, **kwargs)
+    def __str__(self) -> str:
+        return f"{self.user.first_name}'s Profile"
 
+
+    def get_average_rating(self):
+        average = self.user.received_ratings.aggregate(Avg("rating"))["rating__avg"]
+        return average if average is not None else 0.0
     
 
 
