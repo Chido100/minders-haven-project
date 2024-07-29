@@ -1,0 +1,17 @@
+{% extends "emails/base.html" %}
+
+{% block title %} Slot Completed {% endblock title %}
+
+{% block content %}
+<p>Dear {{ slot.created_by.get_full_name }},</p>
+<p>Your minder slot for "<strong>{{ slot.slot_date }}</strong>" has been completed.</p>
+<p>Description: {{ slot.description }}</p>
+<p>Completed By: <strong>{{ slot.assigned_to.get_full_name }} </strong>
+</p>
+<p>Completed On: <strong>{{ slot.completed_on }}</strong>
+</p>
+<p>Thank you for your patronage.</p>
+<p>Regards,<br>
+  The {{ site_name }} Team
+</p>
+{% endblock content %}

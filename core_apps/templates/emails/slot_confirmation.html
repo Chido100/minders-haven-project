@@ -1,0 +1,13 @@
+{% extends "emails/base.html" %}
+
+{% block title %} Minder Slot Confirmation {% endblock title %}
+
+{% block content %}
+<p>Dear {{ slot.created_by.get_full_name }},</p>
+<p>Your slot for "<strong>{{ slot.slot_date }}</strong>" has been created successfully and is being reviewed.</p>
+<p>Thanks for your patience and understanding.</p>
+<p>We shall get back to you shortly.</p>
+<p>Regards,<br>
+  The {{ site_name }} Team
+</p>
+{% endblock content %}
