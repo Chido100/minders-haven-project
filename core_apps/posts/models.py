@@ -2,7 +2,6 @@ from django.db import models
 from autoslug import AutoSlugField
 from django.contrib.auth import get_user_model
 from django.db.models import Count
-from cloudinary.models import CloudinaryField
 from django.utils.translation import gettext_lazy as _
 from taggit.managers import TaggableManager
 from django.contrib.contenttypes.fields import GenericRelation
@@ -17,7 +16,6 @@ User = get_user_model()
 class Post(TimeStampedModel):
     title = models.CharField(verbose_name=_("Title"), max_length=250)
     slug = AutoSlugField(populate_from="title", unique=True)
-    image = CloudinaryField(verbose_name=_("Image"), blank=True, null=True)
     body = models.TextField(verbose_name=_("Post"))
     tags = TaggableManager()
     author = models.ForeignKey(
