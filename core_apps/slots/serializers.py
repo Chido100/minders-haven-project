@@ -38,6 +38,7 @@ class SlotSerializer(serializers.ModelSerializer):
         ).count()
 
 
+
 class SlotStatusUpdateSerializer(serializers.ModelSerializer):
     created_by = serializers.ReadOnlyField(source="created_by.get_full_name")
     completed_by = serializers.ReadOnlyField(source="assigned_to.get_full_name")

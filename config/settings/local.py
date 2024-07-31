@@ -29,7 +29,7 @@ EMAIL_BACKEND = "djcelery_email.backends.CeleryEmailBackend"
 EMAIL_HOST = getenv("EMAIL_HOST")
 EMAIL_PORT = getenv("EMAIL_PORT")
 DEFAULT_FROM_EMAIL = getenv("DEFAULT_FROM_EMAIL")
-DOAMIN = getenv("DOMAIN")
+DOMAIN = getenv("DOMAIN")
 
 
 LOGGING = {

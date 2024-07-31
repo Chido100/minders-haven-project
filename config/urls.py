@@ -30,6 +30,7 @@ urlpatterns = [
     path("api/v1/profiles/", include("core_apps.profiles.urls")),
     path("api/v1/ratings/", include("core_apps.ratings.urls")),
     path("api/v1/posts/", include("core_apps.posts.urls")),
+    path("api/v1/slots/", include("core_apps.slots.urls")),
 ]
 
 admin.site.site_header = "Minders Haven Admin"

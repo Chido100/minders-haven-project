@@ -10,6 +10,9 @@ from django.utils.translation import gettext_lazy as _
 from config.settings.local import SITE_NAME, DEFAULT_FROM_EMAIL
 from core_apps.common.models import TimeStampedModel
 
+from core_apps.profiles.models import Profile
+
+
 
 User = get_user_model()
 
@@ -52,7 +55,7 @@ class Slot(TimeStampedModel):
         default=SlotLocation.MINDER_LOCATION,
         verbose_name=_("Location"),
     )
-    additional_info = models.TextField(verbose_name=_("Additional Information"))
+    additional_info = models.TextField(verbose_name=_("Additional Information"), null=True, blank=True)
     status = models.CharField(
         max_length=20,
         choices=SlotStatus.choices,
@@ -82,17 +85,19 @@ class Slot(TimeStampedModel):
             and self.assigned_to is not None
         ):
             self.notify_assigned_user()
+        self.send_broadcast_email()
+            
 
     def notify_assigned_user(self) -> None:
         try:
-            subject = f"New Slot Assigned: {self.title}"
+            subject = f"New Slot Assigned: {self.slot_date}"
             from_email = DEFAULT_FROM_EMAIL
             recipient_list = [self.assigned_to.email]
 
             context = {"slot": self, "site_name": SITE_NAME}
 
             html_email = render_to_string(
-                "emails/issue_assignment_notification.html", context
+                "emails/slot_assignment_notification.html", context
             )
 
             text_email = strip_tags(html_email)
@@ -105,4 +110,24 @@ class Slot(TimeStampedModel):
         except Exception as e:
             logger.error(
                 f"Failed to send slot assignment email for slot '{self.slot_date}':{e}"
+            )
+
+    
+
+    def send_broadcast_email(self) -> None:
+        try:
+            subject = "New Slot Request"
+            context = {"slot": self, "site_name": SITE_NAME}
+            html_email = render_to_string("emails/slot_broadcast_email.html", context)
+            text_email = strip_tags(html_email)
+            from_email = DEFAULT_FROM_EMAIL
+            recipients = [profile.user.email for profile in Profile.objects.filter(occupation=Profile.Occupation.MINDER)]
+            email = EmailMultiAlternatives(subject, text_email, from_email, recipients)
+
+            email.attach_alternative(html_email, "text/html")
+            email.send()
+        except Exception as e:
+            logger.error(
+                f"Failed to send confirmation email for slot '{self.slot_date}':{e}",
+                exc_info=True,
             )

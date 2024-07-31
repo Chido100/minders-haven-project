@@ -3,11 +3,10 @@
 {% block title %} New Slot Request {% endblock title %}
 
 {% block content %}
-    <p>Dear {{ slot.created_by.get_full_name }},</p>
     <p>New slot for "<strong>{{ slot.slot_date }}</strong>" has been requested.</p>
     <p>Slot Date: {{ slot.slot_date }}</p>
     <p>Slot Time: {{ slot.slot_time }}</p>
-    <p>Slot Duration: {{ slot.duration }}</p>
+    <p>Slot Duration: {{ slot.duration }}hrs</p>
     <p>Number of Kids: {{ slot.number_of_kids }}</p>
     <p>Age of Kid(s): {{ slot.kids_age }}</p>
     <p>Location: {{ slot.location }}</p>

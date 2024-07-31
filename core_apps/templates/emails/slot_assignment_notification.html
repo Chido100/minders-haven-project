@@ -4,9 +4,9 @@
 
 {% block content %}
 <p>Dear {{ slot.assigned_to.get_full_name }},</p>
-<p>A new slot for "<strong>{{ slot.slot_date }}</strong>" has been assigned to you.</p>
+<p>A new slot for "<strong>{{ slot.slot_date }} - {{ slot.slot_time }}</strong>" has been assigned to you.</p>
 <p>Additional Info: <strong>{{ slot.additional_info }}</strong></p>
-<p>Slot created by<strong>{{ slot.created_by.get_full_name }}</strong></p>
+<p>Slot created by: <strong>{{ slot.created_by.get_full_name }}</strong></p>
 <p>Thank you for your attention to this slot request, kindly follow up with this.</p>
 <p>Regards,<br>
   The {{ site_name }} Team

@@ -93,6 +93,6 @@ def send_completed_email(slot: Slot) -> None:
         email.send()
     except Exception as e:
         logger.error(
-            f"Failed to send resolution email for slot '{slot.slot_date}':{e}",
+            f"Failed to send completion email for slot '{slot.slot_date}':{e}",
             exc_info=True,
         )
