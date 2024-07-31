@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import Image from "next/image";
-import minder_back from "@/../public/assets/images/minder_back.jpg";
+import minders_haven_background from "@/../public/assets/images/minders_haven_backgroung.png";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
@@ -16,7 +16,7 @@ export default function HomePage() {
     <div className="relative h-screen">
       <div className="absolute inset-0 z-0">
         <Image
-            src={minder_back}
+            src={minders_haven_background}
             alt="Minders Haven"
             fill
             style={{ objectFit: "cover", objectPosition: "center" }}
@@ -29,8 +29,13 @@ export default function HomePage() {
 						Welcome to Minders Haven
 					</h1>
 					<p className="my-8 text-2xl text-white sm:text-4xl">
-						Are you new? Or an existing user?
+					Need a childminder urgently? Our platform connects you with trusted, 
+					experienced childminders available at short notice, 
+					ensuring your peace of mind and your child's safety. 
+					Whether it's a last-minute meeting or an unexpected event, 
+					we've got you covered with flexible, hassle-free booking options.
 					</p>
+					
 					<Link href="/register" prefetch={false}>
 						<button className="bg-russianViolet rounded-3xl px-4 py-2 text-lg font-semibold text-white hover:bg-purple-700 sm:px-6 sm:text-2xl">
 							<span className="inline-flex items-center">
