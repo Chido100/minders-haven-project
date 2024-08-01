@@ -1,4 +1,4 @@
-import { Metadata } from "next";
+import type { Metadata } from "next";
 import Image from "next/image";
 import minders_haven_background from "@/../public/assets/images/minders_haven_backgroung.png";
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
