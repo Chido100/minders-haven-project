@@ -4,6 +4,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import React from "react";
 
+import Toast from "@/components/shared/Toast";
 import ReduxProvider from "@/lib/redux/provider";
 
 
@@ -20,6 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${openSans.variable} ${robotoSlab.variable}`}>
+        <Toast />
         <ReduxProvider>
           <ThemeProvider
             attribute="class"
