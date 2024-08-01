@@ -28,7 +28,7 @@ export default function HomePage() {
 					<h1 className="font-robotoSlab mb-4 text-4xl font-semibold text-white antialiased sm:text-6xl md:text-8xl">
 						Welcome to Minders Haven
 					</h1>
-					<p className="my-8 text-2xl text-white sm:text-4xl">
+					<p className="my-8 text-2xl text-white sm:text-xl">
 					Need a childminder urgently? Our platform connects you with trusted, 
 					experienced childminders available at short notice, 
 					ensuring your peace of mind and your child's safety. 
