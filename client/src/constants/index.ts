@@ -55,23 +55,15 @@ export const leftNavLinks: LeftNavLink[] = [
 	},
 	{
 		path: "/report-issue",
-		label: "Report an Issue",
+		label: "Request Minder",
 		imgLocation: "/assets/icons/report.svg",
 	},
 
-	{
-		path: "/report-tenant",
-		label: "Report a Tenant",
-		imgLocation: "/assets/icons/speak.svg",
-	},
+	
 	{
 		path: "/bookmark",
 		label: "Bookmarked Posts",
 		imgLocation: "/assets/icons/bookmark.svg",
 	},
-	{
-		path: "/add-post",
-		label: "Create a Post....",
-		imgLocation: "/assets/icons/question-file.svg",
-	},
+
 ];
