@@ -1,9 +1,13 @@
-import React from 'react'
+import { AuthFormHeader } from "@/components/forms/auth";
 
 export default function RegisterPage() {
 	return (
 		<div>
-			<h1 className='dark:text-ballonWhite text-6xl'>Register Page</h1>
+			<AuthFormHeader title="Sign up for an account" staticText="Already have an account?"
+			linkText="Login Here"
+			linkHref="/login"
+			/>
 		</div>
 	);
 }
+
