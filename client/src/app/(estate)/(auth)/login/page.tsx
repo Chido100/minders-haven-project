@@ -1,10 +1,10 @@
 "use client";
 import { AuthFormHeader, LoginForm } from "@/components/forms/auth";
-// import OauthButtons from "@/components/shared/OauthButtons";
-// import { useRedirectIfAuthenticated } from "@/hooks";
+import OauthButtons from "@/components/shared/OauthButtons";
+import { useRedirectIfAuthenticated } from "@/hooks";
 
 export default function LoginPage() {
-	;
+	useRedirectIfAuthenticated();
 	return (
 		<div>
 			<AuthFormHeader
@@ -21,7 +21,7 @@ export default function LoginPage() {
 						<span className="dark:text-platinum px-2 text-sm">Or</span>
 						<div className="bg-richBlack dark:bg-platinum h-px flex-1"></div>
 					</div>
-					
+					<OauthButtons />
 				</div>
 			</div>
 		</div>
