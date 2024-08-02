@@ -2,9 +2,10 @@
 import Spinner from "@/components/shared/Spinner";
 import { useGetAllUsersQuery } from "@/lib/redux/features/users/usersApiSlice";
 import React from "react";
+import ProtectedRoute from "@/components/shared/ProtectedRoute";
 
 
-export default function ParentsPage() {
+function ParentsPageContent() {
     const {data, isLoading}= useGetAllUsersQuery({})
     if (isLoading) {
         return (
@@ -26,4 +27,12 @@ export default function ParentsPage() {
         </div>
     )
     
+}
+
+export default function ParentsPage() {
+	return (
+		<ProtectedRoute>
+            <ParentsPageContent />
+        </ProtectedRoute>
+	);
 }
