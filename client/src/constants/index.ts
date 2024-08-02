@@ -54,7 +54,7 @@ export const leftNavLinks: LeftNavLink[] = [
 		imgLocation: "/assets/icons/minders.svg",
 	},
 	{
-		path: "/report-issue",
+		path: "/request-minder",
 		label: "Request Minder",
 		imgLocation: "/assets/icons/report.svg",
 	},
