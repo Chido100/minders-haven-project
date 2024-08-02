@@ -160,67 +160,66 @@ export interface TopPostsResponse {
 }
 
 
-export interface IssueData {
+export interface SlotData {
 	title: string;
 	description: string;
-	status: "reported" | "resolved" | "in_progress";
+	status: "created" | "completed" | "in_review";
 	priority: "low" | "medium" | "high";
 }
 
-export interface ReportIssueData extends IssueData {
-	apartmentId: string;
-}
+// export interface ReportSlotData extends SlotData {
+// 	apartmentId: string;
+// }
 
-export interface Issue {
+export interface Slot {
 	id: string;
-	apartment_unit: string;
-	reported_by: string;
-	title: string;
-	description: string;
-	status: "reported" | "resolved" | "in_progress";
-	priority: "low" | "medium" | "high";
+	created_by: string;
+	slot_date: string;
+	slot_time: string;
+	additional_info: string;
+	status: "created" | "completed" | "in_review";
 	view_count: number;
 	assigned_to?: string;
 }
 
-export interface IssueResponse {
-	issue: Issue;
+export interface SlotResponse {
+	slot: Slot;
 }
 
-export interface UpdateIssueResponse {
-	issue: {
-		title: string;
-		description: string;
-		apartment: string;
-		reported_by: string;
-		status: "reported" | "resolved" | "in_progress";
-		resolved_by: string;
+export interface UpdateSlotResponse {
+	slot: {
+		slot_date: string;
+		slot_time: string;
+		additional_info: string;
+		created_by: string;
+		status: "created" | "completed" | "in_review";
+		completed_by: string;
 		resolved_on: string;
 	};
 }
 
-export interface IssueStatusData {
+export interface SlotStatusData {
 	status: string;
 }
 
-export interface UpdateIssueData extends IssueStatusData {
-	issueId: string;
+export interface UpdateIssueData extends SlotStatusData {
+	slotId: string;
 }
-export interface MyIssuesResponse {
-	my_issues: {
+export interface MySlotsResponse {
+	my_slots: {
 		count: number;
 		next?: string;
 		previous?: string;
-		results: Issue[];
+		results: Slot[];
 	};
 }
 
-export interface MyAssignedIssuesResponse {
+export interface MyAssignedSlotsResponse {
 	assigned_issues: {
 		count: number;
 		next?: string;
 		previous?: string;
-		results: Issue[];
+		results: Slot[];
 	};
 }
 
@@ -306,23 +305,15 @@ export interface Profile {
 	username: string;
 	full_name: string;
 	gender: "male" | "female" | "other";
-	country_of_origin: string;
 	city_of_origin: string;
 	bio?: string;
 	occupation:
 		| "parent"
 		| "minder";
-	reputation: number;
 	date_joined: string;
 	avatar?: string;
 	average_rating: number;
-	apartment: {
-		id: string;
-		created_at: string;
-		unit_number: string;
-		building: string;
-		floor: number;
-	} | null;
+	
 }
 
 export interface ProfilesResponse {
@@ -345,8 +336,8 @@ export interface RatingData {
 	rating: number;
 	comment: string;
 }
-export interface NonTenantResponse {
-	non_tenant_profiles: {
+export interface NonParentResponse {
+	non_parent_profiles: {
 		count: number;
 		next?: string;
 		previous?: string;
@@ -372,7 +363,6 @@ export interface ProfileData {
 	username: string;
 	gender: "male" | "female" | "other";
 	bio?: string;
-	country_of_origin: string;
 	city_of_origin: string;
 	occupation:
 		| "parent"
