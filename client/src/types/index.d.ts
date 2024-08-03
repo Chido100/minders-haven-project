@@ -164,7 +164,7 @@ export interface SlotData {
 	title: string;
 	description: string;
 	status: "created" | "completed" | "in_review";
-	priority: "low" | "medium" | "high";
+	// priority: "low" | "medium" | "high";
 }
 
 // export interface ReportSlotData extends SlotData {
@@ -305,7 +305,7 @@ export interface Profile {
 	username: string;
 	full_name: string;
 	gender: "male" | "female" | "other";
-	city_of_origin: string;
+	city: string;
 	bio?: string;
 	occupation:
 		| "parent"
@@ -313,6 +313,7 @@ export interface Profile {
 	date_joined: string;
 	avatar?: string;
 	average_rating: number;
+	phone_number: string;
 	
 }
 
@@ -363,7 +364,7 @@ export interface ProfileData {
 	username: string;
 	gender: "male" | "female" | "other";
 	bio?: string;
-	city_of_origin: string;
+	city: string;
 	occupation:
 		| "parent"
 		| "minder";

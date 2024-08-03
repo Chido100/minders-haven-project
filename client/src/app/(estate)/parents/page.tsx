@@ -2,7 +2,7 @@
 import Spinner from "@/components/shared/Spinner";
 import { useGetAllUsersQuery } from "@/lib/redux/features/users/usersApiSlice";
 import React from "react";
-import ProtectedRoute from "@/components/shared/ProtectedRoute";
+import ProtectedRoute from "@/components/shared/ProtectedRoutes";
 
 
 function ParentsPageContent() {

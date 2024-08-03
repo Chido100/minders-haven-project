@@ -48,7 +48,7 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
     first_name = serializers.CharField(source="user.first_name")
     last_name = serializers.CharField(source="user.last_name")
     username = serializers.CharField(source="user.username")
-    country = serializers.CharField(source="user.city")
+    city = serializers.CharField(source="user.city")
 
     class Meta:
         model = Profile
