@@ -60,11 +60,7 @@ function AboutContent() {
 				</div>
 				{/* column 2 */}
 				<div className="space-y-3">
-					<ProfileItem
-						icon={<Briefcase className="tab-icon" />}
-						label="Occupation"
-						value={capitalizeFirstLetter(profile?.occupation || "")}
-					/>
+					
 					<ProfileItem
 						icon={<Star className="tab-icon" />}
 						label="Average Rating"

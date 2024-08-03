@@ -10,10 +10,11 @@ class ProfileSerializer(serializers.ModelSerializer):
     last_name = serializers.ReadOnlyField(source="user.last_name")
     username = serializers.ReadOnlyField(source="user.username")
     full_name = serializers.ReadOnlyField(source="user.get_full_name")
-    city = serializers.ReadOnlyField(source="user.city")
+    city = serializers.ReadOnlyField()
     avatar = serializers.SerializerMethodField()
     date_joined = serializers.DateTimeField(source="user.date_joined", read_only=True)
     average_rating = serializers.SerializerMethodField()
+
 
     class Meta:
         model = Profile
@@ -31,6 +32,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             "date_joined",
             "avatar",
             "average_rating",
+            "phone_number",
         ]
 
     def get_avatar(self, obj: Profile) -> str | None:
@@ -48,7 +50,8 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
     first_name = serializers.CharField(source="user.first_name")
     last_name = serializers.CharField(source="user.last_name")
     username = serializers.CharField(source="user.username")
-    city = serializers.CharField(source="user.city")
+    city = serializers.CharField()
+    
 
     class Meta:
         model = Profile
