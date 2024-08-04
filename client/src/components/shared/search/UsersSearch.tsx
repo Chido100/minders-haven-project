@@ -7,12 +7,12 @@ import Image from "next/image";
 import React from "react";
 
 const UsersSearch = () => {
-	// const dispatch = useAppDispatch();
-	// const searchTerm = useAppSelector((state) => state.user.searchTerm);
+	const dispatch = useAppDispatch();
+	const searchTerm = useAppSelector((state) => state.user.searchTerm);
 
-	// const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-	//	dispatch(setSearchTerm(event.target.value));
-	
+	const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+		dispatch(setSearchTerm(event.target.value));
+	};
 	return (
 		<div className="bg-gray dark:bg-eerieBlack mb-3 flex min-h-[56px] w-full grow rounded-full">
 			<Image
@@ -24,9 +24,9 @@ const UsersSearch = () => {
 			/>
 			<Input
 				placeholder="Search by username, first or last name"
-				type="text"
-				// value={searchTerm}
-				// onChange={handleInputChange}
+				type="search"
+				value={searchTerm}
+				onChange={handleInputChange}
 				className="search-text no-focus dark:text-babyPowder border-none bg-transparent shadow-none outline-none"
 			/>
 		</div>
