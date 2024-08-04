@@ -12,9 +12,11 @@ const userSlice = createSlice({
 		setSearchTerm: (state, action: PayloadAction<string>) => {
 			state.searchTerm = action.payload;
 		},
-		
+		setCurrentPage: (state, action: PayloadAction<number>) => {
+			state.page = action.payload;
+		},
 	},
 });
 
-export const { setSearchTerm} = userSlice.actions;
+export const { setSearchTerm, setCurrentPage } = userSlice.actions;
 export default userSlice.reducer;

@@ -26,17 +26,17 @@ import { formatDate } from "@/utils";
 import ProtectedRoute from "../shared/ProtectedRoutes";
 import { Avatar, AvatarImage } from "../ui/avatar";
 import { useAppSelector } from "@/lib/redux/hooks/typedHooks";
-// import PaginationSection from "../shared/PaginationSection";
+import PaginationSection from "../shared/PaginationSection";
 
 function ParentCardContent() {
 	const { theme } = useTheme();
 	const searchTerm = useAppSelector((state) => state.user.searchTerm);
-	// const page = useAppSelector((state) => state.user.page);
+	const page = useAppSelector((state) => state.user.page);
 
-	 const { data, isLoading } = useGetAllUsersQuery({ searchTerm });
+	 const { data, isLoading } = useGetAllUsersQuery({ searchTerm, page });
 
-	// const totalCount = data?.profiles.count || 0;
-	// const totalPages = Math.ceil(totalCount / 9);
+	const totalCount = data?.profiles.count || 0;
+	const totalPages = Math.ceil(totalCount / 9);
 
 	if (isLoading) {
 		return (
@@ -106,6 +106,7 @@ function ParentCardContent() {
 					<p>No Parents found</p>
 				)}
 			</div>
+			<PaginationSection totalPages={totalPages} />
 			
 		</div>
 	);
