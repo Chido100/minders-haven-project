@@ -37,9 +37,17 @@ export default function HomePage() {
 					</p>
 					
 					<Link href="/register" prefetch={false}>
-						<button className="bg-russianViolet rounded-3xl px-4 py-2 text-lg font-semibold text-white hover:bg-purple-700 sm:px-6 sm:text-2xl">
+						<button className="electricIndigo-gradient rounded-3xl px-4 py-2 text-lg font-semibold text-white hover:bg-purple-700 sm:px-6 sm:text-2xl">
 							<span className="inline-flex items-center">
 								Create Your Account
+								<ArrowRightIcon className="ml-2 size-6" />
+							</span>
+						</button>
+					</Link>
+					<Link href="/login" prefetch={false}>
+						<button className="electricIndigo-gradient rounded-3xl px-4 py-2 text-lg font-semibold text-white hover:bg-purple-700 sm:px-6 sm:text-2xl">
+							<span className="inline-flex items-center">
+								Sign In
 								<ArrowRightIcon className="ml-2 size-6" />
 							</span>
 						</button>
