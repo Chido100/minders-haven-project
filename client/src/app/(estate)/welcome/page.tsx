@@ -1,5 +1,8 @@
 import React from "react";
 import type { Metadata } from "next";
+import {  } from "@heroicons/react/24/solid";
+
+
 
 export const metadata: Metadata = {
 	title: "Minders Haven | Welcome",
@@ -9,6 +12,6 @@ export const metadata: Metadata = {
 
 export default function WelcomePage() {
 	return (
-		<h1 className="dark:text-ballonWhite text-6xl">Welcome</h1>
+		<h1 className="dark:text-ballonWhite text-6xl">Welcome</h1>	
 	);
 }

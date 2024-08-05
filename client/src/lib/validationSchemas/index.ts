@@ -14,11 +14,11 @@ export { profileSchema } from "./ProfileSchema";
 export type { TProfileSchema } from "./ProfileSchema";
 
 
-// export type { TIssueUpdateSchema } from "./IssueUpdateSchema";
-// export { issueUpdateSchema } from "./IssueUpdateSchema";
+export type { TSlotUpdateSchema } from "./SlotUpdateSchema";
+export { slotUpdateSchema } from "./SlotUpdateSchema";
 
-// export type { TIssueCreateSchema } from "./IssueCreateSchema";
-// export { issueCreateSchema } from "./IssueCreateSchema";
+export type { TSlotCreateSchema } from "./SlotCreateSchema";
+export { slotCreateSchema } from "./SlotCreateSchema";
 
 
 // export type { TPostSchema } from "./PostSchema";

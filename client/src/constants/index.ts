@@ -4,7 +4,7 @@ import { LeftNavLink } from "@/types";
 // import { IssueData } from '@/types';
 
 type OptionType = {
-	value: "reported" | "resolved" | "in_progress" | "low" | "medium" | "high";
+	value: "reported" | "resolved" | "in_progress" | "parent_location" | "minder_location";
 	label: string;
 };
 
@@ -14,21 +14,14 @@ export const statusOptions: OptionType[] = [
 	{ value: "in_progress", label: "In Progress" },
 ];
 
-export const priorityOptions: OptionType[] = [
-	{ value: "low", label: "Low" },
-	{ value: "medium", label: "Medium" },
-	{ value: "high", label: "High" },
+export const locationOptions: OptionType[] = [
+	{ value: "parent_location", label: "Parent Location" },
+	{ value: "minder_location", label: "Minder Location" },
 ];
 
 export const occupationOptions = [
-	{ value: "mason", label: "Mason" },
-	{ value: "carpenter", label: "Carpenter" },
-	{ value: "plumber", label: "Plumber" },
-	{ value: "roofer", label: "Roofer" },
-	{ value: "painter", label: "Painter" },
-	{ value: "electrician", label: "Electrician" },
-	{ value: "hvac", label: "HVAC" },
-	{ value: "tenant", label: "Tenant" },
+	{ value: "parent", label: "Parent" },
+	{ value: "minder", label: "Minder" },
 ];
 
 export const leftNavLinks: LeftNavLink[] = [
@@ -54,8 +47,8 @@ export const leftNavLinks: LeftNavLink[] = [
 		imgLocation: "/assets/icons/minders.svg",
 	},
 	{
-		path: "/request-minder",
-		label: "Request Minder",
+		path: "/create-slot",
+		label: "Create Slot",
 		imgLocation: "/assets/icons/report.svg",
 	},
 

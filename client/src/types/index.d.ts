@@ -161,22 +161,29 @@ export interface TopPostsResponse {
 
 
 export interface SlotData {
-	title: string;
-	description: string;
+	slot_date: Date;
+	slot_time: string;
+	duration: number;
+	number_of_kids: number;
+	kids_age: number;
+	location: "parent_location" | "minder_location";
+	additional_info?: string;
 	status: "created" | "completed" | "in_review";
 	// priority: "low" | "medium" | "high";
 }
 
-// export interface ReportSlotData extends SlotData {
-// 	apartmentId: string;
-// }
+export interface CreateSlotData extends SlotData {}
 
 export interface Slot {
 	id: string;
 	created_by: string;
-	slot_date: string;
+	slot_date: Date;
 	slot_time: string;
-	additional_info: string;
+	duration: number;
+	number_of_kids: number;
+	kids_age: number;
+	location: "parent_location" | "minder_location";
+	additional_info?: string;
 	status: "created" | "completed" | "in_review";
 	view_count: number;
 	assigned_to?: string;
@@ -190,7 +197,11 @@ export interface UpdateSlotResponse {
 	slot: {
 		slot_date: string;
 		slot_time: string;
-		additional_info: string;
+		duration: number;
+		number_of_kids: number;
+		kids_age: number;
+		location: "parent_location" | "minder_location";
+		additional_info?: string;
 		created_by: string;
 		status: "created" | "completed" | "in_review";
 		completed_by: string;
@@ -202,7 +213,7 @@ export interface SlotStatusData {
 	status: string;
 }
 
-export interface UpdateIssueData extends SlotStatusData {
+export interface UpdateSlotData extends SlotStatusData {
 	slotId: string;
 }
 export interface MySlotsResponse {
