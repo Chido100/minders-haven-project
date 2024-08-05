@@ -21,11 +21,11 @@ export type { TSlotCreateSchema } from "./SlotCreateSchema";
 export { slotCreateSchema } from "./SlotCreateSchema";
 
 
-// export type { TPostSchema } from "./PostSchema";
-// export { postSchema } from "./PostSchema";
+export type { TPostSchema } from "./PostSchema";
+export { postSchema } from "./PostSchema";
 
-// export type { TReplySchema } from "./PostReplySchema";
-// export { replySchema } from "./PostReplySchema";
+export type { TReplySchema } from "./PostReplySchema";
+export { replySchema } from "./PostReplySchema";
 
 // export type { TPostUpdateSchema } from "./PostUpdateSchema";
 // export { postUpdateSchema } from "./PostUpdateSchema";
