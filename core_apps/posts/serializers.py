@@ -124,7 +124,6 @@ class BasePostSerializer(serializers.ModelSerializer):
         fields = [
             "id",
             "title",
-            "display_image",
             "slug",
             "author_username",
             "is_bookmarked",

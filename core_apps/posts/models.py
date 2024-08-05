@@ -1,6 +1,5 @@
 from django.db import models
 from autoslug import AutoSlugField
-from cloudinary.models import CloudinaryField
 from django.contrib.auth import get_user_model
 from django.db.models import Count
 from django.utils.translation import gettext_lazy as _
@@ -17,7 +16,6 @@ User = get_user_model()
 class Post(TimeStampedModel):
     title = models.CharField(verbose_name=_("Title"), max_length=250)
     slug = AutoSlugField(populate_from="title", unique=True)
-    display_image = CloudinaryField(verbose_name=_("Image"), blank=True, null=True)
     body = models.TextField(verbose_name=_("Post"))
     tags = TaggableManager()
     author = models.ForeignKey(

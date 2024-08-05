@@ -24,7 +24,6 @@ export interface Reply {
 interface Post {
 	id: string;
 	title: string;
-	display_image?: string;
 	slug: string;
 	body: string;
 	tags: string[];
@@ -92,7 +91,6 @@ export interface ReplyResponse {
 export interface UpdatePostData {
 	postSlug: string;
 	title: string;
-	display_image?: string;
 	body: string;
 }
 

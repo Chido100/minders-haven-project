@@ -29,9 +29,9 @@ export function useAuthNavigation() {
 			link.path === "/profile" ||
 			link.path === "/parents" ||
 			link.path === "/bookmark" ||
-			link.path === "/request-minder" ||
+			link.path === "/create-slot" ||
 			link.path === "/minders" ||
-			link.path === "/add_post"
+			link.path === "/add-post" 
 		) {
 			return isAuthenticated;
 		}
