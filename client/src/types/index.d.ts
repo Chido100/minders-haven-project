@@ -60,7 +60,6 @@ export interface MyPostsResponse {
 
 export interface PostData {
 	title: string;
-	display_image?: string;
 	tags: string[];
 	body: string;
 }

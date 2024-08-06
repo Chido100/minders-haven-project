@@ -106,7 +106,7 @@ function ParentCardContent() {
 					<p>No Parents found</p>
 				)}
 			</div>
-			<PaginationSection totalPages={totalPages} />
+			<PaginationSection totalPages={totalPages} entityType="user" />
 			
 		</div>
 	);

@@ -9,7 +9,6 @@ from django.contrib.contenttypes.fields import GenericRelation
 from core_apps.common.models import ContentView, TimeStampedModel
 from core_apps.profiles.models import Profile
 
-
 User = get_user_model()
 
 
@@ -46,10 +45,10 @@ class Post(TimeStampedModel):
         if not (
             self.author.is_superuser
             or self.author.is_staff
-            #or self.author.profile.occupation == Profile.Occupation.PARENT
+            or self.author.profile.occupation == Profile.Occupation.TENANT
         ):
             raise ValueError(
-                "Only superusers or staff members can create posts."
+                "Only tenants,superusers or staff members can create posts."
             )
         super().save(*args, **kwargs)
 
