@@ -17,7 +17,7 @@ import ProtectedRoute from "../shared/ProtectedRoutes";
 import { getRepliesText, sortByDateDescending } from "@/utils";
 import { MessageCircleMoreIcon } from "lucide-react";
 import RepliesList from "./RepliesList";
-// import CreateReplyForm from "../forms/add-reply/CreateReplyForm";
+import CreateReplyForm from "../forms/add-reply/CreateReplyForm";
 
 interface PostDetailsProps {
 	params: {
@@ -98,7 +98,12 @@ function PostDetailsContent({ params }: PostDetailsProps) {
 				)}
 			</div>
 
-			
+			<CardContent className="border-b-eerieBlack dark:border-gray dark:text-platinum border-b border-dashed">
+				<h2 className="h2-semibold dark:text-pumpkin mt-3">
+					Add your reply here
+				</h2>
+				<CreateReplyForm slug={post?.slug} />
+			</CardContent>
 		</Card>
 	);
 }
