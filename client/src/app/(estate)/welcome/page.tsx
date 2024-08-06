@@ -1,17 +1,16 @@
-import React from "react";
+import PostCard from "@/components/cards/PostCard";
 import type { Metadata } from "next";
-import {  } from "@heroicons/react/24/solid";
-
-
 
 export const metadata: Metadata = {
 	title: "Minders Haven | Welcome",
 	description:
-		"Welcome to the Minders Haven Website. This webapp allows parents/guardians to signup, create their profiles, and the best and nearest childminders within a short notice.",
+		"Welcome to Minders Haven.",
 };
 
 export default function WelcomePage() {
 	return (
-		<h1 className="dark:text-ballonWhite text-6xl">Welcome</h1>	
+		<>
+			<PostCard />
+		</>
 	);
 }
