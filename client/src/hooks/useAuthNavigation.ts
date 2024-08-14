@@ -16,7 +16,7 @@ export function useAuthNavigation() {
 		try {
 			await logoutUser().unwrap();
 			dispatch(setLogout());
-			router.push("/login");
+			router.push("/welcome");
 			toast.success("Logged Out!");
 		} catch (e) {
 			const errorMessage = extractErrorMessage(e);

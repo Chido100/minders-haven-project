@@ -43,7 +43,7 @@ export default function MinderCard() {
 		<div>
 			<UsersSearch />
 			<h1 className="flex-center font-robotoSlab dark:text-pumpkin text-5xl">
-				All Minders - ({minders?.results.length})
+				Childminders
 			</h1>
 
 			<div className="mt-4 grid cursor-pointer grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -66,9 +66,11 @@ export default function MinderCard() {
 											height={100}
 										/>
 									</Avatar>
+									<Link href={`/profile/${minder.id}`}>
 									<CardTitle className="flex-center h2-semibold font-robotoSlab dark:text-pumpkin">
 										{minder.full_name}
 									</CardTitle>
+									</Link>
 								</CardHeader>
 								<CardTitle className="flex-center">
 									<p className="h4-semibold dark:text-lime-500">
@@ -83,6 +85,7 @@ export default function MinderCard() {
 										average_rating={minder.average_rating}
 									/>
 								</CardDescription>
+
 								<div className="flex-center">
 									<Link href={`/add-rating?username=${minder.username}`}>
 										<Button

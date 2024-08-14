@@ -42,6 +42,12 @@ export const usersApiSlice = baseApiSlice.injectEndpoints({
 			query: () => "/profiles/user/my-profile/",
 			providesTags: ["User"],
 		}),
+
+		getMinderProfile: builder.query<ProfileResponse, void>({
+			query: (id) => `/profiles/non-parent-profiles/${id}/`,
+			providesTags: ["User"],
+		}),
+
 		updateUserProfile: builder.mutation<ProfileData, ProfileData>({
 			query: (formData) => ({
 				url: "/profiles/user/update/",
@@ -58,4 +64,5 @@ export const {
 	useGetUserProfileQuery,
 	useUpdateUserProfileMutation,
 	useGetAllMindersQuery,
+	useGetMinderProfileQuery,
 } = usersApiSlice;

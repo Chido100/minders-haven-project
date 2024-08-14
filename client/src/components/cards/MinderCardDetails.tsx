@@ -1,6 +1,9 @@
 import { capitalizeFirstLetter, formatDate } from "@/utils";
 import { Briefcase, CalendarDays, Map, Star } from "lucide-react";
 
+import Link from "next/link";
+import { Button } from "../ui/button";
+
 interface MinderDetailsProps {
 	city: string;
 	occupation: string;
@@ -54,6 +57,8 @@ export default function MinderCardDetails({
 				<span className="tab-font">Date Joined: </span>
 				<span className="tab-font">{formatDate(date_joined).toString()}</span>
 			</p>
+
+			
 		</div>
 	);
 }

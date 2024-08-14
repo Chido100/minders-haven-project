@@ -56,6 +56,8 @@ def send_slot_confirmation_email(slot: Slot) -> None:
         )
 
 
+
+
 def send_slot_completed_email(slot: Slot) -> None:
     try:
         subject = "Slot Completed"

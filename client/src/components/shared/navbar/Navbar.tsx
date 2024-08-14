@@ -9,10 +9,10 @@ import AuthAvatar from "@/components/shared/navbar/AuthAvatar";
 export default function Navbar() {
 	return (
 		<nav className="flex-between bg-baby_rich border-b-platinum shadow-platinum fixed z-50 w-full gap-5 border-b-2 p-4 sm:p-6 lg:px-12 dark:border-b-0 dark:shadow-none">
-			<Link href="/" className="flex items-center">
-				<HomeModernIcon className="mr-2 size-11 text-purple-900" />
+			<Link href="/welcome" className="flex items-center">
+				<HomeModernIcon className="mr-2 size-11 text-indigo-800" />
 				<p className="h2-bold font-robotoSlab text-veryBlack dark:text-babyPowder hidden sm:block">
-					Minders <span className="text-purple-900"> Haven</span>
+					Minders <span className="text-indigo-800"> Haven</span>
 				</p>
 			</Link>
 

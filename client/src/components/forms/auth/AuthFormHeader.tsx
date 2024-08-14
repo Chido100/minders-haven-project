@@ -1,5 +1,6 @@
-import { HomeModernIcon } from "@heroicons/react/24/solid";
+import { HomeModernIcon} from "@heroicons/react/24/solid";
 import Link from "next/link";
+
 
 type FormHeaderProps = {
 	title?: string;
@@ -16,8 +17,8 @@ export default function AuthFormHeader({
 }: FormHeaderProps) {
 	return (
 		<div className="px-4 sm:mx-auto sm:w-full sm:max-w-md sm:px-6 lg:px-8">
-			<HomeModernIcon className="mx-auto size-16 dark:text-lime-500" />
-			<h2 className="text-baby_richBlack h2-bold font-robotoSlab dark:text-pumpkin mt-3 text-center">
+			<HomeModernIcon className="mx-auto size-16 dark:text-indigo-600" />
+			<h2 className="text-baby_richBlack h2-bold font-robotoSlab dark:text-electricIndigo mt-3 text-center">
 				{title}
 			</h2>
 			{(staticText || linkText) && linkHref && (

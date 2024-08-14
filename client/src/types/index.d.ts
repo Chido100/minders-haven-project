@@ -169,7 +169,6 @@ export interface SlotData {
 	location: "parent_location" | "minder_location";
 	additional_info?: string;
 	status: "created" | "completed" | "in_review";
-	// priority: "low" | "medium" | "high";
 }
 
 export interface CreateSlotData extends SlotData {}

@@ -3,10 +3,16 @@ import { AuthFormHeader, LoginForm } from "@/components/forms/auth";
 import OauthButtons from "@/components/shared/OauthButtons";
 import { useRedirectIfAuthenticated } from "@/hooks";
 
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
+
+
 export default function LoginPage() {
 	useRedirectIfAuthenticated();
 	return (
 		<div>
+
+			
 			<AuthFormHeader
 				title="Login to your account"
 				staticText="Don't have an account?"
@@ -24,6 +30,7 @@ export default function LoginPage() {
 					<OauthButtons />
 				</div>
 			</div>
+			
 		</div>
 	);
 }

@@ -1,5 +1,6 @@
 import logging
 from typing import Any
+from django.conf import settings
 
 from django.http import Http404
 from django.utils import timezone
@@ -14,6 +15,9 @@ from core_apps.common.renderers import GenericJSONRenderer
 from .emails import send_slot_confirmation_email, send_slot_completed_email, send_broadcast_email
 from .models import Slot
 from .serializers import SlotSerializer, SlotStatusUpdateSerializer
+
+
+
 
 
 logger = logging.getLogger(__name__)
@@ -160,6 +164,3 @@ class SlotDeleteAPIView(generics.DestroyAPIView):
     def delete(self, request: Request, *args: Any, **kwargs: Any) -> Response:
         super().delete(request, *args, **kwargs)
         return Response(status=status.HTTP_204_NO_CONTENT)
-
-
-

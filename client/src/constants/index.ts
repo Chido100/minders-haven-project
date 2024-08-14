@@ -4,14 +4,14 @@ import { LeftNavLink } from "@/types";
 // import { IssueData } from '@/types';
 
 type OptionType = {
-	value: "reported" | "resolved" | "in_progress" | "parent_location" | "minder_location";
+	value: "created" | "completed" | "in_review" | "parent_location" | "minder_location";
 	label: string;
 };
 
 export const statusOptions: OptionType[] = [
-	{ value: "reported", label: "Reported" },
-	{ value: "resolved", label: "Resolved" },
-	{ value: "in_progress", label: "In Progress" },
+	{ value: "created", label: "Created" },
+	{ value: "completed", label: "Completed" },
+	{ value: "in_review", label: "In Review" },
 ];
 
 export const locationOptions: OptionType[] = [
@@ -35,11 +35,11 @@ export const leftNavLinks: LeftNavLink[] = [
 		label: "Profile",
 		imgLocation: "/assets/icons/user-profile.svg",
 	},
-	{
-		path: "/parents",
-		label: "Parents",
-		imgLocation: "/assets/icons/parents.svg",
-	},
+	// {
+	//	path: "/parents",
+	//	label: "Parents",
+	//	imgLocation: "/assets/icons/parents.svg",
+	// },
 
 	{
 		path: "/minders",
@@ -53,16 +53,16 @@ export const leftNavLinks: LeftNavLink[] = [
 	},
 
 	
-	{
-		path: "/bookmark",
-		label: "Bookmarked Posts",
-		imgLocation: "/assets/icons/bookmark.svg",
-	},
+	// {
+	//	path: "/bookmark",
+	//	label: "Bookmarked Posts",
+	//	imgLocation: "/assets/icons/bookmark.svg",
+	// },
 
-	{
-		path: "/add-post",
-		label: "Create a Post...",
-		imgLocation: "/assets/icons/question-file.svg",
-	},
+	// {
+	//	path: "/add-post",
+	//	label: "Create a Post...",
+	//	imgLocation: "/assets/icons/question-file.svg",
+	// },
 
 ];

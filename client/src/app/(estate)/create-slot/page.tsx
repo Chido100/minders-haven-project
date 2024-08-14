@@ -3,9 +3,8 @@ import CreateSlotForm from "@/components/forms/create-slot/CreateSlotForm";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-	title: "Minders Haven | Report Issue",
-	description:
-		"Parents can request/book a childminder slot.",
+	title: "Minders Haven | Request Minder",
+	description: "Parents can request/book a Childminder slot.",
 };
 
 export default function CreateSlotPage() {

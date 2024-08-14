@@ -12,7 +12,11 @@ from core_apps.common.models import TimeStampedModel
 
 from core_apps.profiles.models import Profile
 
+import stripe
+from django.conf import settings
 
+
+stripe.api_key = settings.STRIPE_SECRET_KEY
 
 User = get_user_model()
 
@@ -28,6 +32,7 @@ class Slot(TimeStampedModel):
     class SlotLocation(models.TextChoices):
         PARENT_LOCATION = ("parent_location", _("Parent Location"))
         MINDER_LOCATION = ("minder_location", _("Minder Location"))
+
 
 
     created_by = models.ForeignKey(
@@ -62,11 +67,11 @@ class Slot(TimeStampedModel):
         default=SlotStatus.CREATED,
         verbose_name=_("Status"),
     )
-    
     completed_on = models.DateField(verbose_name=_("Completed On"), null=True, blank=True)
 
     def __str__(self) -> str:
         return str(self.slot_date)
+
 
 
     def save(self, *args, **kwargs) -> None:
@@ -85,6 +90,7 @@ class Slot(TimeStampedModel):
             and self.assigned_to is not None
         ):
             self.notify_assigned_user()
+            self.create_payment_intent_and_notify()
         self.send_broadcast_email()
             
 
@@ -131,3 +137,6 @@ class Slot(TimeStampedModel):
                 f"Failed to send confirmation email for slot '{self.slot_date}':{e}",
                 exc_info=True,
             )
+
+
+

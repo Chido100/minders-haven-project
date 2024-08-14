@@ -12,6 +12,7 @@ from core_apps.common.renderers import GenericJSONRenderer
 from .models import Profile
 from .serializers import (AvatarUploadSerializer, ProfileSerializer, UpdateProfileSerializer,)
 from .tasks import upload_avatar_to_cloudinary
+from django.shortcuts import get_object_or_404
 
 User = get_user_model()
 
@@ -39,6 +40,7 @@ class ProfileListAPIView(generics.ListAPIView):
         )
 
 
+# Profile details for logged in user
 class ProfileDetailAPIView(generics.RetrieveAPIView):
     serializer_class = ProfileSerializer
     renderer_classes = [GenericJSONRenderer]
@@ -52,6 +54,27 @@ class ProfileDetailAPIView(generics.RetrieveAPIView):
             return Profile.objects.get(user=self.request.user)
         except Profile.DoesNotExist:
             raise Http404("Profile not found")
+
+
+# Profile details for minders 
+class MinderProfileDetailAPIView(generics.RetrieveAPIView):
+    serializer_class = ProfileSerializer
+    renderer_classes = [GenericJSONRenderer]
+    object_label = "profile"
+
+    def get_queryset(self) -> QuerySet:
+        # Allow anyone to view profiles with "minder" as their occupation
+        return Profile.objects.select_related("user").filter(occupation=Profile.Occupation.MINDER)
+
+    def get_object(self) -> Profile:
+        # Get the user ID from the URL parameters
+        user_id = self.kwargs.get('user_id')
+        try:
+            # Return the profile for the specified user ID
+            return Profile.objects.get(id=user_id)
+        except Profile.DoesNotExist:
+            raise Http404("Profile not found")
+
 
 
 class ProfileUpdateAPIView(generics.RetrieveUpdateAPIView):

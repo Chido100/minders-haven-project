@@ -31,9 +31,9 @@ export default function HomePage() {
 					<p className="my-8 text-2xl text-white sm:text-xl">
 					Need a childminder urgently? Our platform connects you with trusted, 
 					experienced childminders available at short notice, 
-					ensuring your peace of mind and your child's safety. 
-					Whether it's a last-minute meeting or an unexpected event, 
-					we've got you covered with flexible, hassle-free booking options.
+					ensuring your peace of mind and your child&apos;s safety. 
+					Whether it&apos; a last-minute meeting or an unexpected event, 
+					we&apos;ve got you covered with flexible, hassle-free booking options.
 					</p>
 					
 					<Link href="/register" prefetch={false}>

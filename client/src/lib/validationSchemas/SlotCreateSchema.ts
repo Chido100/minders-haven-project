@@ -44,3 +44,4 @@ export const slotCreateSchema = z.object({
 
 export type TSlotCreateSchema = z.infer<typeof slotCreateSchema>;
 
+

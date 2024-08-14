@@ -283,3 +283,6 @@ AUTHENTICATION_BACKENDS = [
     "social_core.backends.google.GoogleOAuth2",
     "django.contrib.auth.backends.ModelBackend",
 ]
+
+STRIPE_PUBLISHABLE_KEY = getenv("STRIPE_PUBLISHABLE_KEY")
+STRIPE_SECRET_KEY = getenv("STRIPE_SECRET_KEY")

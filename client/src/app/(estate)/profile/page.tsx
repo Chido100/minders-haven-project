@@ -9,7 +9,7 @@ import About from "@/components/profile/About";
 import Posts from "@/components/profile/Posts";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-// import Slots from "@/components/profile/Slots"
+import MySlots from "@/components/profile/MySlots"
 // import AssignedSlots from "@/components/profile/AssignedSlots";
 
 
@@ -34,9 +34,6 @@ function ProfilePageContent() {
 							<TabsTrigger value="about" className="h3-semibold tab">
 								About
 							</TabsTrigger>
-							<TabsTrigger value="posts" className="h3-semibold tab">
-								Posts
-							</TabsTrigger>
 							<TabsTrigger value="my-slots" className="h3-semibold tab">
 								My Slots
 							</TabsTrigger>
@@ -48,10 +45,8 @@ function ProfilePageContent() {
 						{/* about tabs content */}
 						<About />
 
-						{/* posts tab content */}
-						<Posts />
-
 						{/* slot tab content */}
+						<MySlots />
 						
 						{/* assigned slots tab content */}
 						
