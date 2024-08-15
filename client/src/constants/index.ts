@@ -53,11 +53,11 @@ export const leftNavLinks: LeftNavLink[] = [
 	},
 
 	
-	// {
-	//	path: "/bookmark",
-	//	label: "Bookmarked Posts",
-	//	imgLocation: "/assets/icons/bookmark.svg",
-	// },
+	{
+		path: "/bookmark",
+		label: "Bookmarked Posts",
+		imgLocation: "/assets/icons/bookmark.svg",
+	},
 
 	// {
 	//	path: "/add-post",

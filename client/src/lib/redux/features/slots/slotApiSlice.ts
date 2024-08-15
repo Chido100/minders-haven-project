@@ -3,10 +3,14 @@ import {
 	MyAssignedSlotsResponse,
 	MySlotsResponse,
 	CreateSlotData,
+	SlotData,
 	UpdateSlotData,
 	UpdateSlotResponse,
 } from "@/types";
+
 import { baseApiSlice } from "../api/baseApiSlice";
+
+
 
 export const slotApiSlice = baseApiSlice.injectEndpoints({
 	endpoints: (builder) => ({

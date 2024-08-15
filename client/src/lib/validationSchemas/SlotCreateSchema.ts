@@ -34,9 +34,9 @@ const timeSchema = z.preprocess((arg) => {
 export const slotCreateSchema = z.object({
   slot_date: dateSchema,
   slot_time: timeSchema,
-  duration: z.number().max(1, {message: "Duration must be atleast 1 hr." }),
-  number_of_kids: z.number().max(1, {message: "Number of kids must be atleast 1." }),
-  kids_age: z.number().max(1, {message: "Age of kids must be atleast 1." }),
+  duration: z.string().max(1, {message: "Duration must be atleast 1 hr." }),
+  number_of_kids: z.string().max(1, {message: "Number of kids must be atleast 1." }),
+  kids_age: z.string().max(1, {message: "Age of kids must be atleast 1." }),
   location: z.enum(["parent_location", "minder_location"]),
   additional_info: z.string().optional(),
   status: z.enum(["created", "completed", "in_review"]),

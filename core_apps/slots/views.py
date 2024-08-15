@@ -79,7 +79,7 @@ class SlotCreateAPIView(generics.CreateAPIView):
 
     def perform_create(self, serializer: SlotSerializer) -> None:
         slot = serializer.save(created_by=self.request.user)
-        #Slot.send_slot_confirmation_email(slot)
+        Slot.send_slot_confirmation_email(slot)
         
 
 

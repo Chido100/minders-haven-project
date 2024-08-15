@@ -1,4 +1,4 @@
-import { HomeModernIcon} from "@heroicons/react/24/solid";
+import { CalendarDaysIcon, HomeModernIcon} from "@heroicons/react/24/solid";
 import Link from "next/link";
 
 
@@ -17,7 +17,7 @@ export default function AuthFormHeader({
 }: FormHeaderProps) {
 	return (
 		<div className="px-4 sm:mx-auto sm:w-full sm:max-w-md sm:px-6 lg:px-8">
-			<HomeModernIcon className="mx-auto size-16 dark:text-indigo-600" />
+			<CalendarDaysIcon className="mx-auto size-16 dark:text-indigo-600" />
 			<h2 className="text-baby_richBlack h2-bold font-robotoSlab dark:text-electricIndigo mt-3 text-center">
 				{title}
 			</h2>

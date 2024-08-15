@@ -163,9 +163,9 @@ export interface TopPostsResponse {
 export interface SlotData {
 	slot_date: Date;
 	slot_time: string;
-	duration: number;
-	number_of_kids: number;
-	kids_age: number;
+	duration: string;
+	number_of_kids: string;
+	kids_age: string;
 	location: "parent_location" | "minder_location";
 	additional_info?: string;
 	status: "created" | "completed" | "in_review";
@@ -178,9 +178,9 @@ export interface Slot {
 	created_by: string;
 	slot_date: Date;
 	slot_time: string;
-	duration: number;
-	number_of_kids: number;
-	kids_age: number;
+	duration: string;
+	number_of_kids: string;
+	kids_age: string;
 	location: "parent_location" | "minder_location";
 	additional_info?: string;
 	status: "created" | "completed" | "in_review";
@@ -194,11 +194,11 @@ export interface SlotResponse {
 
 export interface UpdateSlotResponse {
 	slot: {
-		slot_date: string;
+		slot_date: Date;
 		slot_time: string;
-		duration: number;
-		number_of_kids: number;
-		kids_age: number;
+		duration: string;
+		number_of_kids: string;
+		kids_age: string;
 		location: "parent_location" | "minder_location";
 		additional_info?: string;
 		created_by: string;
