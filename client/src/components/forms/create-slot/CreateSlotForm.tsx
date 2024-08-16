@@ -45,6 +45,11 @@ export default function CreateSlotForm() {
         },
 	});
 
+	const initialSlotDate = {
+		slotDate: new Date(),
+		key: 'selection'
+	}
+
 
 	const onSubmit = async (formValues: TSlotCreateSchema) => {
 		formValues.status = "created";
