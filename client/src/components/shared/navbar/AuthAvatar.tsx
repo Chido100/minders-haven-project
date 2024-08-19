@@ -53,6 +53,12 @@ export default function AuthAvatar() {
 						</DropdownMenuItem>
 
 						<DropdownMenuItem className="auth-nav">
+							<Link href="/chat" className="flex-row-center">
+								<Users className="mr-1" /> Inbox
+							</Link>
+						</DropdownMenuItem>
+
+						<DropdownMenuItem className="auth-nav">
 							<Link href="/minders" className="flex-row-center">
 								<Users className="mr-1" /> Minders
 							</Link>
