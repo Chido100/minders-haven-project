@@ -54,19 +54,9 @@ class Slot(TimeStampedModel):
     duration = models.IntegerField()
     number_of_kids = models.IntegerField()
     kids_age = models.CharField(max_length=20)
-    location = models.CharField(
-        max_length=30,
-        choices=SlotLocation.choices,
-        default=SlotLocation.MINDER_LOCATION,
-        verbose_name=_("Location"),
-    )
+    location = models.CharField(max_length=30, choices=SlotLocation.choices, default=SlotLocation.MINDER_LOCATION, verbose_name=_("Location"),)
     additional_info = models.TextField(verbose_name=_("Additional Information"), null=True, blank=True)
-    status = models.CharField(
-        max_length=20,
-        choices=SlotStatus.choices,
-        default=SlotStatus.CREATED,
-        verbose_name=_("Status"),
-    )
+    status = models.CharField(max_length=20, choices=SlotStatus.choices, default=SlotStatus.CREATED, verbose_name=_("Status"),)
     completed_on = models.DateField(verbose_name=_("Completed On"), null=True, blank=True)
 
     def __str__(self) -> str:
@@ -137,6 +127,7 @@ class Slot(TimeStampedModel):
                 f"Failed to send confirmation email for slot '{self.slot_date}':{e}",
                 exc_info=True,
             )
+
 
 
 

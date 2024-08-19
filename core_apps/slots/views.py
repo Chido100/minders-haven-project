@@ -20,6 +20,7 @@ from .serializers import SlotSerializer, SlotStatusUpdateSerializer
 
 
 
+
 logger = logging.getLogger(__name__)
 
 
@@ -79,7 +80,7 @@ class SlotCreateAPIView(generics.CreateAPIView):
 
     def perform_create(self, serializer: SlotSerializer) -> None:
         slot = serializer.save(created_by=self.request.user)
-        Slot.send_slot_confirmation_email(slot)
+        send_slot_confirmation_email(slot)
         
 
 
@@ -164,3 +165,8 @@ class SlotDeleteAPIView(generics.DestroyAPIView):
     def delete(self, request: Request, *args: Any, **kwargs: Any) -> Response:
         super().delete(request, *args, **kwargs)
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+
+
