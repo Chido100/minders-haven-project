@@ -56,6 +56,7 @@ class Slot(TimeStampedModel):
     kids_age = models.CharField(max_length=20)
     location = models.CharField(max_length=30, choices=SlotLocation.choices, default=SlotLocation.MINDER_LOCATION, verbose_name=_("Location"),)
     additional_info = models.TextField(verbose_name=_("Additional Information"), null=True, blank=True)
+    total_price = models.DecimalField(default=0.00, max_digits=8, decimal_places=2, verbose_name=_("Total Price"))
     status = models.CharField(max_length=20, choices=SlotStatus.choices, default=SlotStatus.CREATED, verbose_name=_("Status"),)
     completed_on = models.DateField(verbose_name=_("Completed On"), null=True, blank=True)
 
@@ -65,6 +66,13 @@ class Slot(TimeStampedModel):
 
 
     def save(self, *args, **kwargs) -> None:
+
+        if self.total_price == 0.00:
+            base_price = 30
+            if self.number_of_kids > 1:
+                base_price *= 3 / 2
+            self.total_price = base_price * self.duration if self.duration > 1 else base_price
+
         is_existing_instance = self.pk is not None
         old_assigned_to = None
 
@@ -80,7 +88,6 @@ class Slot(TimeStampedModel):
             and self.assigned_to is not None
         ):
             self.notify_assigned_user()
-            self.create_payment_intent_and_notify()
         self.send_broadcast_email()
             
 

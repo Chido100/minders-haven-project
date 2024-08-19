@@ -72,15 +72,15 @@ class MySlotsListAPIView(generics.ListAPIView):
         return Slot.objects.filter(created_by=user)
 
 
-class SlotCreateAPIView(generics.CreateAPIView):
-    queryset = Slot.objects.all()
-    serializer_class = SlotSerializer
-    renderer_classes = [GenericJSONRenderer]
-    object_label = "slot"
+#class SlotCreateAPIView(generics.CreateAPIView):
+#    queryset = Slot.objects.all()
+#    serializer_class = SlotSerializer
+#    renderer_classes = [GenericJSONRenderer]
+#    object_label = "slot"
 
-    def perform_create(self, serializer: SlotSerializer) -> None:
-        slot = serializer.save(created_by=self.request.user)
-        send_slot_confirmation_email(slot)
+#    def perform_create(self, serializer: SlotSerializer) -> None:
+#        slot = serializer.save(created_by=self.request.user)
+#        send_slot_confirmation_email(slot)
         
 
 
@@ -167,6 +167,24 @@ class SlotDeleteAPIView(generics.DestroyAPIView):
         return Response(status=status.HTTP_204_NO_CONTENT)
 
 
+
+
+# To add total_price to model:
+class SlotCreateAPIView(generics.CreateAPIView):
+    queryset = Slot.objects.all()
+    serializer_class = SlotSerializer
+    renderer_classes = [GenericJSONRenderer]
+    object_label = "slot"
+
+    def perform_create(self, serializer: SlotSerializer) -> None:
+        try:
+            slot = serializer.save(created_by=self.request.user)
+            send_slot_confirmation_email(slot)
+        except Exception as e:
+            # Log the error for debugging
+            logger.error(f"Error during slot creation: {e}")
+            # Optionally, raise an APIException to return an error response to the client
+            raise APIException("An error occurred while creating the slot.")
 
 
 

@@ -5,6 +5,7 @@
 {% block content %}
 <p>Dear {{ slot.created_by.get_full_name }},</p>
 <p>Your slot for "<strong>{{ slot.slot_date }} - {{ slot.slot_time }}</strong>" has been created successfully and is being reviewed.</p>
+<p>With total cost of: £{{ slot.total_price }}</p>
 <p>Thanks for your patience and understanding.</p>
 <p>We shall get back to you shortly.</p>
 <p>Regards,<br>

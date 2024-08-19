@@ -52,6 +52,7 @@ LOCAL_APPS = [
     "core_apps.common",
     "core_apps.slots",
     "core_apps.posts",
+    "core_apps.chat",
 ]
 
 

@@ -16,6 +16,7 @@ class SlotSerializer(serializers.ModelSerializer):
     created_by = serializers.ReadOnlyField(source="created_by.get_full_name")
     assigned_to = serializers.ReadOnlyField(source="assigned_to.get_full_name")
     view_count = serializers.SerializerMethodField()
+    total_price = serializers.ReadOnlyField()
 
     class Meta:
         model = Slot
@@ -29,6 +30,7 @@ class SlotSerializer(serializers.ModelSerializer):
             "location",
             "number_of_kids",
             "kids_age",
+            "total_price",
             "additional_info",
             "status",
             "view_count",
