@@ -204,6 +204,17 @@ export default function PostCard() {
 
 				<PaginationSection totalPages={totalPages} entityType="post" />
 			</div>
+
+			<footer className="relative mt-12 bg-black py-4 text-center text-white">
+				<div className="container mx-auto flex justify-between px-4">
+					<p className="text-left">
+						Contact us: <a href="mailto:support@mindershaven.com" className="underline">support@mindershaven.com</a>
+					</p>
+					<p className="text-right">
+						&copy; {new Date().getFullYear()} Minders Haven. All rights reserved.
+					</p>
+				</div>
+			</footer>
 		</>
 	);
 }

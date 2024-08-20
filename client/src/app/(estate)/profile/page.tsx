@@ -9,8 +9,8 @@ import About from "@/components/profile/About";
 import Posts from "@/components/profile/Posts";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import MySlots from "@/components/profile/MySlots"
-// import AssignedSlots from "@/components/profile/AssignedSlots";
+import Slots from "@/components/profile/Slots"
+import AssignedSlots from "@/components/profile/AssignedSlots";
 
 
 export const metadata: Metadata = {
@@ -46,9 +46,10 @@ function ProfilePageContent() {
 						<About />
 
 						{/* slot tab content */}
-						<MySlots />
+						<Slots />
 						
 						{/* assigned slots tab content */}
+						<AssignedSlots />
 						
 					</Tabs>
 				</div>

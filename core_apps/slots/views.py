@@ -54,7 +54,7 @@ class SlotListAPIView(generics.ListAPIView):
 class AssignedSlotsListView(generics.ListAPIView):
     serializer_class = SlotSerializer
     renderer_classes = [GenericJSONRenderer]
-    object_label = "assigned_slots"
+    #object_label = "assigned_slots"
 
     def get_queryset(self):
         user = self.request.user
@@ -96,7 +96,7 @@ class SlotDetailAPIView(generics.RetrieveAPIView):
 
         user = self.request.user
         if not (
-            user == slot.created_by or user.is_staff or user == issue.assigned_to
+            user == slot.created_by or user.is_staff or user == slot.assigned_to
         ):
             raise PermissionDenied("You do not have permission to view this slot.")
         self.record_slot_view(slot)
@@ -137,7 +137,7 @@ class SlotUpdateAPIView(generics.UpdateAPIView):
 
         if not (user.is_staff or user == slot.assigned_to):
             logger.warning(
-                f"Unauthorized slot status update attempt by user {user.get_full_name} on slot {issue.slot_date}"
+                f"Unauthorized slot status update attempt by user {user.get_full_name} on slot {slot.slot_date}"
             )
             raise PermissionDenied("You do not have permission to update the slot")
         send_slot_resolved_email(slot)

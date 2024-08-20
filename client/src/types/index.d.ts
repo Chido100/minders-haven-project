@@ -225,7 +225,7 @@ export interface MySlotsResponse {
 }
 
 export interface MyAssignedSlotsResponse {
-	assigned_issues: {
+	assigned_slots: {
 		count: number;
 		next?: string;
 		previous?: string;

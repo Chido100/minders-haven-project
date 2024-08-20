@@ -16,7 +16,7 @@ class SlotSerializer(serializers.ModelSerializer):
     created_by = serializers.ReadOnlyField(source="created_by.get_full_name")
     assigned_to = serializers.ReadOnlyField(source="assigned_to.get_full_name")
     view_count = serializers.SerializerMethodField()
-    total_price = serializers.ReadOnlyField()
+    total_price = serializers.SerializerMethodField()
 
     class Meta:
         model = Slot
@@ -37,10 +37,17 @@ class SlotSerializer(serializers.ModelSerializer):
         ]
 
     def get_view_count(self, obj):
-        content_type = ContentType.objects.get_for_model(obj)
-        return ContentView.objects.filter(
-            content_type=content_type, object_id=obj.pkid
-        ).count()
+        try:
+            content_type = ContentType.objects.get_for_model(obj)
+            return ContentView.objects.filter(
+                content_type=content_type, object_id=obj.id
+            ).count()
+        except Exception as e:
+            logger.error(f"Error calculating view count for object {obj.id}: {e}")
+            return 0
+
+    def get_total_price(self, obj):
+        return str(obj.total_price)
 
 
 
