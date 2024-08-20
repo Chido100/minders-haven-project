@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 interface AuthState {
+    userRole: any;
 	isAuthenticated: boolean;
 }
 

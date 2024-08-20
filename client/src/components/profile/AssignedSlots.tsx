@@ -1,10 +1,12 @@
 "use client";
 
 import { useGetMyAssignedSlotsQuery } from "@/lib/redux/features/slots/slotApiSlice";
+import { useAppSelector } from "@/lib/redux/hooks/typedHooks";
 import React from "react";
 import Spinner from "../shared/Spinner";
 import { TabsContent } from "../ui/tabs";
 import SlotCard from "../cards/SlotCard";
+import { useRouter } from "next/router";
 
 export default function AssignedSlots() {
 	const { data: assignedSlots, isLoading } = useGetMyAssignedSlotsQuery("");
@@ -31,7 +33,7 @@ export default function AssignedSlots() {
 					))
 				) : (
 					<p className="h2-semibold dark:text-lime-500">
-						No Slot(s) Assigned to you Yet!
+						No Slot(s) Assigned to you!
 					</p>
 				)}
 			</div>

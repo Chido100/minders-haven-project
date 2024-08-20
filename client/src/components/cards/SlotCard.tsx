@@ -8,7 +8,7 @@ import {
 	CardHeader,
 	CardTitle,
 } from "@/components/ui/card";
-import { Hotel } from "lucide-react";
+import { CircleDot, Hotel } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 
 interface Slot {
@@ -57,7 +57,7 @@ export default function SlotCard({ slot }: SlotCardProps) {
 				<CardContent>
 					<CardDescription className="dark:text-platinum">
 						<p className="flex items-center space-x-2">
-							<Hotel className="tab-icon" />
+							<CircleDot className="tab-icon" />
 							<span className="tab-font">Duration: </span>
 							<span className="text-lg">{slot.duration}</span>
 						</p>
@@ -67,7 +67,7 @@ export default function SlotCard({ slot }: SlotCardProps) {
                 <CardContent>
 					<CardDescription className="dark:text-platinum">
 						<p className="flex items-center space-x-2">
-							<Hotel className="tab-icon" />
+							<CircleDot className="tab-icon" />
 							<span className="tab-font">Number of Kids: </span>
 							<span className="text-lg">{slot.number_of_kids}</span>
 						</p>
@@ -77,32 +77,14 @@ export default function SlotCard({ slot }: SlotCardProps) {
                 <CardContent>
 					<CardDescription className="dark:text-platinum">
 						<p className="flex items-center space-x-2">
-							<Hotel className="tab-icon" />
+							<CircleDot className="tab-icon" />
 							<span className="tab-font">Kids Age: </span>
 							<span className="text-lg">{slot.kids_age}</span>
 						</p>
 					</CardDescription>
 				</CardContent>
 
-                <CardContent>
-					<CardDescription className="dark:text-platinum">
-						<p className="flex items-center space-x-2">
-							<Hotel className="tab-icon" />
-							<span className="tab-font">Location: </span>
-							<span className="text-lg">{slot.location}</span>
-						</p>
-					</CardDescription>
-				</CardContent>
-
-                <CardContent>
-					<CardDescription className="dark:text-platinum">
-						<p className="flex items-center space-x-2">
-							<Hotel className="tab-icon" />
-							<span className="tab-font">Additional Info: </span>
-							<span className="text-lg">{slot.additional_info}</span>
-						</p>
-					</CardDescription>
-				</CardContent>
+                
 
 				<CardFooter className="dark:text-babyPowder flex flex-row justify-between">
 					<p>
