@@ -5,7 +5,7 @@ from rest_framework import serializers
 from taggit.models import Tag
 from taggit.serializers import TagListSerializerField, TaggitSerializer
 from core_apps.common.models import ContentView
-from core_apps.posts.models import Post, Reply
+from core_apps.posts.models import Post, Reply, ContactUs
 
 User = get_user_model()
 
@@ -201,3 +201,11 @@ class PostByTagSerializer(TaggitSerializer, BasePostSerializer):
 
     class Meta(BasePostSerializer.Meta):
         fields = BasePostSerializer.Meta.fields + ["body", "tags"]
+
+
+
+
+class ContactUsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ContactUs
+        fields = ['first_name', 'last_name', 'email', 'message_content']

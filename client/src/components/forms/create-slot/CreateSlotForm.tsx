@@ -49,11 +49,11 @@ export default function CreateSlotForm() {
 	const onSubmit = async (formValues: TSlotCreateSchema) => {
 		formValues.status = "created";
 
-		// Get the date value from the form
+		// Get date value from the form
 		const dateValue = formValues.slot_date; 
 
 		if (dateValue instanceof Date && !isNaN(dateValue.getTime())) {
-			// Format the date to YYYY-MM-DD
+			// Format date to YYYY-MM-DD
 			formValues.slot_date = format(dateValue, 'yyyy-MM-dd');
 		} else if (typeof dateValue === 'string' && isValid(parse(dateValue, 'yyyy-MM-dd', new Date()))) {
 			formValues.slot_date = dateValue;

@@ -35,7 +35,8 @@ const config = {
 				eerieBlack: "#171D1C",
 				ballonWhite: "#dfe6f6",
 				russianViolet: "#38023B",
-				palatinate: "#5E0462"
+				palatinate: "#5E0462",
+				lapisLazuli: "#0C6291",
 			},
 
 			keyframes: {

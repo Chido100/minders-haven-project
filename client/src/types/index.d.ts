@@ -387,3 +387,4 @@ export interface ProfileData {
 export type Occupation =
 	| "parent"
 	| "minder";
+

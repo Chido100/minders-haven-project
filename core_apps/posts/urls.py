@@ -15,6 +15,7 @@ from .views import (
     PopularTagsListAPIView,
     TopPostsListAPIView,
     PostsByTagListAPIView,
+    ContactUsCreateView,
 )
 
 
@@ -34,4 +35,6 @@ urlpatterns = [
     path("<uuid:post_id>/replies/", ReplyListAPIView.as_view(), name="reply-list"),
     path("<uuid:post_id>/upvote/", UpvotePostAPIView.as_view(), name="upvote-post"),
     path("<uuid:post_id>/downvote/", DownvotePostAPIView.as_view(), name="downvote-post"),
+
+    path('contact_us/', ContactUsCreateView.as_view(), name='contact-us'),
 ]

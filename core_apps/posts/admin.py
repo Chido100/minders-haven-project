@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post
+from .models import Post, ContactUs
 from django.contrib.contenttypes.models import ContentType
 from core_apps.common.admin import ContentViewInline
 from core_apps.common.models import ContentView
@@ -22,3 +22,11 @@ class PostAdmin(admin.ModelAdmin):
 
     def tag_list(self, obj):
         return ", ".join(o.name for o in obj.tags.all())
+
+
+
+class ContactUsAdmin(admin.ModelAdmin):
+    list_display = ["first_name", "last_name"]
+    
+admin.site.register(ContactUs, ContactUsAdmin)
+

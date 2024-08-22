@@ -11,7 +11,7 @@ from rest_framework.views import APIView
 from core_apps.common.models import ContentView
 from core_apps.common.renderers import GenericJSONRenderer
 from .filters import PostFilter
-from .models import Post, Reply
+from .models import Post, Reply, ContactUs
 from .permissions import CanCreateEditPost
 from .serializers import (
     DownvotePostSerializer,
@@ -21,6 +21,7 @@ from .serializers import (
     TopPostSerializer,
     UpvotePostSerializer,
     PostByTagSerializer,
+    ContactUsSerializer,
 )
 
 
@@ -257,3 +258,15 @@ class PostsByTagListAPIView(generics.ListAPIView):
         return Post.objects.filter(tags__slug=tag_slug).annotate(
             replies_count=Count("replies")
         )
+
+
+
+# Contact us view
+class ContactUsCreateView(generics.CreateAPIView):
+    queryset = ContactUs.objects.all()
+    serializer_class = ContactUsSerializer
+    renderer_classes = [GenericJSONRenderer]
+    object_label = "contact_us"
+
+    def perform_create(self, serializer) -> None:
+        serializer.save()
