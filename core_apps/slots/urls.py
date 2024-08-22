@@ -10,6 +10,7 @@ from .views import (
 )
 
 
+
 urlpatterns = [
     path("", SlotListAPIView.as_view(), name="slot-list"),
     path("me/", MySlotsListAPIView.as_view(), name="my-slot-list"),

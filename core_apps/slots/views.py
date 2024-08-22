@@ -20,6 +20,7 @@ from .serializers import SlotSerializer, SlotStatusUpdateSerializer
 
 
 
+
 logger = logging.getLogger(__name__)
 
 
@@ -71,15 +72,15 @@ class MySlotsListAPIView(generics.ListAPIView):
         return Slot.objects.filter(created_by=user)
 
 
-class SlotCreateAPIView(generics.CreateAPIView):
-    queryset = Slot.objects.all()
-    serializer_class = SlotSerializer
-    renderer_classes = [GenericJSONRenderer]
-    object_label = "slot"
+#class SlotCreateAPIView(generics.CreateAPIView):
+#    queryset = Slot.objects.all()
+#    serializer_class = SlotSerializer
+#    renderer_classes = [GenericJSONRenderer]
+#    object_label = "slot"
 
-    def perform_create(self, serializer: SlotSerializer) -> None:
-        slot = serializer.save(created_by=self.request.user)
-        Slot.send_slot_confirmation_email(slot)
+#    def perform_create(self, serializer: SlotSerializer) -> None:
+#        slot = serializer.save(created_by=self.request.user)
+#        send_slot_confirmation_email(slot)
         
 
 
@@ -95,7 +96,7 @@ class SlotDetailAPIView(generics.RetrieveAPIView):
 
         user = self.request.user
         if not (
-            user == slot.created_by or user.is_staff or user == issue.assigned_to
+            user == slot.created_by or user.is_staff or user == slot.assigned_to
         ):
             raise PermissionDenied("You do not have permission to view this slot.")
         self.record_slot_view(slot)
@@ -136,10 +137,10 @@ class SlotUpdateAPIView(generics.UpdateAPIView):
 
         if not (user.is_staff or user == slot.assigned_to):
             logger.warning(
-                f"Unauthorized slot status update attempt by user {user.get_full_name} on slot {issue.slot_date}"
+                f"Unauthorized slot status update attempt by user {user.get_full_name} on slot {slot.slot_date}"
             )
             raise PermissionDenied("You do not have permission to update the slot")
-        send_slot_resolved_email(slot)
+        send_slot_completed_email(slot)
         return slot
 
 
@@ -164,3 +165,26 @@ class SlotDeleteAPIView(generics.DestroyAPIView):
     def delete(self, request: Request, *args: Any, **kwargs: Any) -> Response:
         super().delete(request, *args, **kwargs)
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+
+
+
+# To add total_price to model:
+class SlotCreateAPIView(generics.CreateAPIView):
+    queryset = Slot.objects.all()
+    serializer_class = SlotSerializer
+    renderer_classes = [GenericJSONRenderer]
+    object_label = "slot"
+
+    def perform_create(self, serializer: SlotSerializer) -> None:
+        try:
+            slot = serializer.save(created_by=self.request.user)
+            send_slot_confirmation_email(slot)
+        except Exception as e:
+            # Log the error for debugging
+            logger.error(f"Error during slot creation: {e}")
+            # Optionally, raise an APIException to return an error response to the client
+            raise APIException("An error occurred while creating the slot.")
+
+
+

@@ -60,7 +60,7 @@ export default function PostCard() {
 					priority
 				/>
 
-				<main className="flex-center relative z-10 h-full bg-black/20">
+				<main className="flex-center relative z-10 h-full bg-black/40">
 					<div className="text-center">
 						<h1 className="font-robotoSlab mb-4 text-4xl font-semibold text-white antialiased sm:text-6xl md:text-8xl">
 							Welcome to Minders Haven
@@ -71,9 +71,12 @@ export default function PostCard() {
 							ensuring your peace of mind and your child&apos;s safety. 
 							Whether it&apos; a last-minute meeting or an unexpected event, 
 							we&apos;ve got you covered with flexible, hassle-free booking options.
-						</p>		
+						</p><br></br>
+
+						<br></br><p className="font-robotoSlab mt-6 text-xl text-white dark:text-indigo-500"><strong className="text-pear">Want to join our pool of Childminders?</strong> Send us an email.</p>		
 					</div>
 				</main>
+				
 			</div>
 
 
@@ -125,6 +128,7 @@ export default function PostCard() {
 					</Card>
 				</div>
 			</div>
+
 
 			{/* Posts Section */}
 			<div className="mt-7">
@@ -204,6 +208,17 @@ export default function PostCard() {
 
 				<PaginationSection totalPages={totalPages} entityType="post" />
 			</div>
+
+			<footer className="relative mt-12 bg-black py-4 text-center text-white">
+				<div className="container mx-auto flex justify-between px-4">
+					<p className="text-left">
+						Contact: <a href="mailto:support@mindershaven.com" className="underline">support@mindershaven.com</a>
+					</p>
+					<p className="text-right">
+						&copy; {new Date().getFullYear()} Minders Haven. All rights reserved.
+					</p>
+				</div>
+			</footer>
 		</>
 	);
 }

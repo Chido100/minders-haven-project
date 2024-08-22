@@ -167,6 +167,7 @@ export interface SlotData {
 	number_of_kids: string;
 	kids_age: string;
 	location: "parent_location" | "minder_location";
+	total_price: string;
 	additional_info?: string;
 	status: "created" | "completed" | "in_review";
 }
@@ -182,6 +183,7 @@ export interface Slot {
 	number_of_kids: string;
 	kids_age: string;
 	location: "parent_location" | "minder_location";
+	total_price: string;
 	additional_info?: string;
 	status: "created" | "completed" | "in_review";
 	view_count: number;
@@ -200,6 +202,7 @@ export interface UpdateSlotResponse {
 		number_of_kids: string;
 		kids_age: string;
 		location: "parent_location" | "minder_location";
+		total_price: string;
 		additional_info?: string;
 		created_by: string;
 		status: "created" | "completed" | "in_review";
@@ -225,7 +228,7 @@ export interface MySlotsResponse {
 }
 
 export interface MyAssignedSlotsResponse {
-	assigned_issues: {
+	assigned_slots: {
 		count: number;
 		next?: string;
 		previous?: string;
@@ -384,3 +387,4 @@ export interface ProfileData {
 export type Occupation =
 	| "parent"
 	| "minder";
+

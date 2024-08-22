@@ -72,3 +72,16 @@ class Reply(TimeStampedModel):
     class Meta:
         verbose_name = _("Reply")
         verbose_name_plural = _("Replies")
+
+
+    
+
+
+class ContactUs(TimeStampedModel):
+    first_name = models.CharField(verbose_name=_("First Name"), max_length=100)
+    last_name = models.CharField(verbose_name=_("Last Name"), max_length=100)
+    email = models.EmailField(verbose_name=_("Email Address"))
+    message_content = models.TextField(verbose_name=_("Message"))
+
+    def __str__(self):
+        return f"{self.first_name}"

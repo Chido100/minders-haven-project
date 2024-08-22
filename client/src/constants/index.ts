@@ -52,11 +52,17 @@ export const leftNavLinks: LeftNavLink[] = [
 		imgLocation: "/assets/icons/report.svg",
 	},
 
+	// {
+	//	path: "/contact-us",
+	//	label: "Become a Childminder",
+	//	imgLocation: "/assets/icons/question-file.svg",
+	// },
+
 	
 	{
 		path: "/bookmark",
 		label: "Bookmarked Posts",
-		imgLocation: "/assets/icons/bookmark.svg",
+		imgLocation: "/assets/icons/minders.svg",
 	},
 
 	// {

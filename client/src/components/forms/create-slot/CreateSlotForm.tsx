@@ -45,14 +45,22 @@ export default function CreateSlotForm() {
         },
 	});
 
-	const initialSlotDate = {
-		slotDate: new Date(),
-		key: 'selection'
-	}
-
 
 	const onSubmit = async (formValues: TSlotCreateSchema) => {
 		formValues.status = "created";
+
+		// Get date value from the form
+		const dateValue = formValues.slot_date; 
+
+		if (dateValue instanceof Date && !isNaN(dateValue.getTime())) {
+			// Format date to YYYY-MM-DD
+			formValues.slot_date = format(dateValue, 'yyyy-MM-dd');
+		} else if (typeof dateValue === 'string' && isValid(parse(dateValue, 'yyyy-MM-dd', new Date()))) {
+			formValues.slot_date = dateValue;
+		} else {
+			toast.error("Invalid date format. Please use YYYY-MM-DD");
+			return; 
+		}
 
 		try {            
 			await createSlot(formValues).unwrap();

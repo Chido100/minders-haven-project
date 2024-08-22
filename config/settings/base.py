@@ -12,10 +12,10 @@ BASE_DIR = Path(__file__).resolve(strict=True).parent.parent.parent
 
 APPS_DIR = BASE_DIR / "core_apps"
 
-local_env_file = path.join(BASE_DIR, ".envs", ".env.local")
+prod_env_file = path.join(BASE_DIR, ".envs", ".env.production")
 
-if path.isfile(local_env_file):
-    load_dotenv(local_env_file)
+if path.isfile(prod_env_file):
+    load_dotenv(prod_env_file)
 
 
 
@@ -52,6 +52,7 @@ LOCAL_APPS = [
     "core_apps.common",
     "core_apps.slots",
     "core_apps.posts",
+    "core_apps.chat",
 ]
 
 
@@ -210,12 +211,11 @@ REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES":(
         "core_apps.common.cookie_auth.CookieAuthentication",
     ),
-    "DEFAULT_PERMISSION_CLASSES":(
+    "DEFAULT_PERMISSION_CLASSES": (
         "rest_framework.permissions.IsAuthenticated",
     ),
-    "DEFAULT_PAGINATION_CLASS":(
-        "rest_framework.pagination.PageNumberPagination",
-    ),
+    "DEFAULT_PAGINATION_CLASS":"rest_framework.pagination.PageNumberPagination",
+    
     "DEFAULT_FILTER_BACKENDS":[
         "django_filters.rest_framework.DjangoFilterBackend",
     ],
@@ -284,5 +284,4 @@ AUTHENTICATION_BACKENDS = [
     "django.contrib.auth.backends.ModelBackend",
 ]
 
-STRIPE_PUBLISHABLE_KEY = getenv("STRIPE_PUBLISHABLE_KEY")
-STRIPE_SECRET_KEY = getenv("STRIPE_SECRET_KEY")
+
